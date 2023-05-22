@@ -16,7 +16,7 @@ Hello! I'm Ahmed Attafi, a passionate and enthusiastic junior IoT developer with
 ![](https://github-profile-trophy.vercel.app/?username=Attafii&theme=radical&no-frame=true&no-bg=false&margin-w=4)
 
 ## 🐦 Latest Tweet
-[![](https://gtce.itsvg.in/api?username=https://twitter.com/ahmedattafi_)](https://github.com/VishwaGauravIn/github-twitter-card-embed)
+[![](https://gtce.itsvg.in/api?username=ahmedattafi_)](https://github.com/VishwaGauravIn/github-twitter-card-embed)
 
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)

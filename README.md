@@ -10,15 +10,31 @@
 
 ---
 
-🧠 close your eyes , let's play a funny game
+💻 watch my code come to life
 
-<div id="contribution-snake">
-  <div class="grid-container">
-    <div class="contribution-grid" id="snake-grid"></div>
+<div id="code-visualization">
+  <div class="code-editor">
+    <div class="editor-header">
+      <div class="editor-buttons">
+        <div class="btn red"></div>
+        <div class="btn yellow"></div>
+        <div class="btn green"></div>
+      </div>
+      <span class="file-name">ahmed-attafi.js</span>
+    </div>
+    <div class="code-content">
+      <div class="line-numbers" id="line-numbers"></div>
+      <div class="code-lines" id="code-lines"></div>
+    </div>
+    <div class="status-bar">
+      <span>Lines: <span id="line-count">0</span></span>
+      <span>Language: JavaScript</span>
+      <span>💚 Live</span>
+    </div>
   </div>
 </div>
 
-▶ now open 🧠
+✨ building the future, one line at a time
 
 ---
 
@@ -123,220 +139,299 @@ Missing: Just one more tutorial... 📚
 </div>
 
 <script>
-// Contribution Snake Animation
-class ContributionSnake {
+// Animated Code Visualization
+class CodeVisualization {
   constructor() {
-    this.grid = document.getElementById('snake-grid');
-    this.width = 52; // weeks in a year
-    this.height = 7; // days in a week
-    this.snake = [];
-    this.direction = { x: 1, y: 0 };
-    this.speed = 150;
+    this.codeLines = document.getElementById('code-lines');
+    this.lineNumbers = document.getElementById('line-numbers');
+    this.lineCount = document.getElementById('line-count');
     
-    this.createGrid();
-    this.initSnake();
-    this.animate();
-  }
-  
-  createGrid() {
-    if (!this.grid) return;
-    
-    this.grid.innerHTML = '';
-    for (let week = 0; week < this.width; week++) {
-      for (let day = 0; day < this.height; day++) {
-        const cell = document.createElement('div');
-        cell.className = 'grid-cell';
-        cell.dataset.week = week;
-        cell.dataset.day = day;
-        
-        // Add some random contributions
-        const intensity = Math.random();
-        if (intensity > 0.7) cell.classList.add('level-4');
-        else if (intensity > 0.5) cell.classList.add('level-3');
-        else if (intensity > 0.3) cell.classList.add('level-2');
-        else if (intensity > 0.1) cell.classList.add('level-1');
-        
-        this.grid.appendChild(cell);
-      }
-    }
-  }
-  
-  initSnake() {
-    // Start snake in the middle-left
-    this.snake = [
-      { x: 0, y: 3 },
-      { x: 1, y: 3 },
-      { x: 2, y: 3 },
-      { x: 3, y: 3 }
+    this.code = [
+      "// Welcome to Ahmed's coding journey ✨",
+      "",
+      "class Developer {",
+      "  constructor() {",
+      "    this.name = 'Ahmed Attafi';",
+      "    this.location = 'Tunisia 🇹🇳';",
+      "    this.passion = 'Building innovative solutions';",
+      "    this.coffee = Infinity;",
+      "  }",
+      "",
+      "  getCurrentRole() {",
+      "    return 'Automotive Software QA Engineer @ Capgemini';",
+      "  }",
+      "",
+      "  getSkills() {",
+      "    return {",
+      "      frontend: ['HTML', 'CSS', 'JavaScript', 'React'],",
+      "      backend: ['Python', 'C#', 'C++', 'Node.js'],",
+      "      iot: ['Arduino', 'Raspberry Pi', 'Sensors'],",
+      "      cloud: ['Azure', 'Firebase'],",
+      "      tools: ['Git', 'Docker', 'Jenkins']",
+      "    };",
+      "  }",
+      "",
+      "  debugCode() {",
+      "    while (this.coffee > 0) {",
+      "      this.solveProblem();",
+      "      this.coffee--;",
+      "    }",
+      "    this.brewMoreCoffee();",
+      "  }",
+      "",
+      "  collaborate() {",
+      "    return 'Always ready for new challenges! 🚀';",
+      "  }",
+      "}",
+      "",
+      "const ahmed = new Developer();",
+      "console.log(ahmed.collaborate());"
     ];
-    this.updateSnakeDisplay();
+    
+    this.currentLine = 0;
+    this.currentChar = 0;
+    this.isDeleting = false;
+    this.typeSpeed = 50;
+    this.deleteSpeed = 25;
+    this.pauseTime = 2000;
+    
+    this.startAnimation();
   }
   
-  updateSnakeDisplay() {
-    // Clear previous snake
-    const cells = this.grid.querySelectorAll('.grid-cell');
-    cells.forEach(cell => {
-      cell.classList.remove('snake-head', 'snake-body');
-    });
-    
-    // Draw new snake
-    this.snake.forEach((segment, index) => {
-      const cell = this.grid.querySelector(`[data-week="${segment.x}"][data-day="${segment.y}"]`);
-      if (cell) {
-        if (index === this.snake.length - 1) {
-          cell.classList.add('snake-head');
-        } else {
-          cell.classList.add('snake-body');
-        }
+  startAnimation() {
+    this.typeCode();
+  }
+  
+  typeCode() {
+    if (this.currentLine < this.code.length) {
+      const line = this.code[this.currentLine];
+      
+      if (!this.isDeleting && this.currentChar <= line.length) {
+        // Typing
+        this.displayCode();
+        this.currentChar++;
+        setTimeout(() => this.typeCode(), this.typeSpeed);
+      } else if (!this.isDeleting && this.currentChar > line.length) {
+        // Line complete, move to next
+        this.currentLine++;
+        this.currentChar = 0;
+        setTimeout(() => this.typeCode(), 100);
       }
-    });
+    } else {
+      // All lines typed, restart after pause
+      setTimeout(() => this.restart(), this.pauseTime);
+    }
   }
   
-  moveSnake() {
-    const head = this.snake[this.snake.length - 1];
-    const newHead = {
-      x: head.x + this.direction.x,
-      y: head.y + this.direction.y
-    };
+  displayCode() {
+    if (!this.codeLines || !this.lineNumbers) return;
     
-    // Check boundaries and change direction
-    if (newHead.x >= this.width) {
-      // Hit right wall, go down
-      this.direction = { x: 0, y: 1 };
-      newHead.x = head.x;
-      newHead.y = head.y + 1;
-    } else if (newHead.y >= this.height) {
-      // Hit bottom wall, go left
-      this.direction = { x: -1, y: 0 };
-      newHead.y = head.y;
-      newHead.x = head.x - 1;
-    } else if (newHead.x < 0) {
-      // Hit left wall, go up
-      this.direction = { x: 0, y: -1 };
-      newHead.x = head.x;
-      newHead.y = head.y - 1;
-    } else if (newHead.y < 0) {
-      // Hit top wall, go right
-      this.direction = { x: 1, y: 0 };
-      newHead.y = head.y;
-      newHead.x = head.x + 1;
+    let html = '';
+    let lineNumbersHtml = '';
+    
+    for (let i = 0; i <= this.currentLine && i < this.code.length; i++) {
+      const line = this.code[i];
+      let displayLine = '';
+      
+      if (i === this.currentLine) {
+        displayLine = line.substring(0, this.currentChar);
+        if (this.currentChar < line.length) {
+          displayLine += '<span class="cursor">|</span>';
+        }
+      } else {
+        displayLine = line;
+      }
+      
+      // Syntax highlighting
+      displayLine = this.highlightSyntax(displayLine);
+      
+      html += `<div class="code-line">${displayLine}</div>`;
+      lineNumbersHtml += `<div class="line-number">${i + 1}</div>`;
     }
     
-    // Add new head
-    this.snake.push(newHead);
+    this.codeLines.innerHTML = html;
+    this.lineNumbers.innerHTML = lineNumbersHtml;
     
-    // Remove tail (keep snake length constant)
-    if (this.snake.length > 8) {
-      this.snake.shift();
+    if (this.lineCount) {
+      this.lineCount.textContent = this.currentLine + 1;
     }
-    
-    this.updateSnakeDisplay();
   }
   
-  animate() {
-    this.moveSnake();
-    setTimeout(() => this.animate(), this.speed);
+  highlightSyntax(line) {
+    // Simple syntax highlighting
+    line = line.replace(/\/\/(.*)/g, '<span class="comment">//$1</span>');
+    line = line.replace(/\b(class|constructor|return|while|const|let|var|function|if|else)\b/g, '<span class="keyword">$1</span>');
+    line = line.replace(/\b(this|new)\b/g, '<span class="keyword">$1</span>');
+    line = line.replace(/'([^']*)'/g, '<span class="string">\'$1\'</span>');
+    line = line.replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
+    line = line.replace(/\b(\d+)\b/g, '<span class="number">$1</span>');
+    line = line.replace(/\b(true|false|null|undefined|Infinity)\b/g, '<span class="boolean">$1</span>');
+    
+    return line;
+  }
+  
+  restart() {
+    this.currentLine = 0;
+    this.currentChar = 0;
+    this.isDeleting = false;
+    this.typeCode();
   }
 }
 
-// Initialize snake animation when page loads
+// Initialize code visualization when page loads
 document.addEventListener('DOMContentLoaded', () => {
-  new ContributionSnake();
+  new CodeVisualization();
 });
 
 // Also initialize immediately if DOM is already loaded
 if (document.readyState !== 'loading') {
-  new ContributionSnake();
+  new CodeVisualization();
 }
 </script>
 
 <style>
-#contribution-snake {
+#code-visualization {
   display: flex;
   justify-content: center;
   margin: 20px 0;
   padding: 20px;
+}
+
+.code-editor {
   background: #0d1117;
+  border: 1px solid #30363d;
   border-radius: 8px;
-  border: 1px solid #21262d;
+  max-width: 700px;
+  width: 100%;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
-.grid-container {
+.editor-header {
+  background: #21262d;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #30363d;
+}
+
+.editor-buttons {
+  display: flex;
+  gap: 8px;
+  margin-right: 16px;
+}
+
+.btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.btn.red { background: #ff5f56; }
+.btn.yellow { background: #ffbd2e; }
+.btn.green { background: #27ca3f; }
+
+.file-name {
+  color: #f0f6fc;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.code-content {
+  display: flex;
   background: #0d1117;
+  min-height: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.line-numbers {
+  background: #161b22;
+  color: #656d76;
+  padding: 16px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: right;
+  min-width: 40px;
+  user-select: none;
+  border-right: 1px solid #21262d;
+}
+
+.code-lines {
+  flex: 1;
   padding: 16px;
-  border-radius: 6px;
+  color: #f0f6fc;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre;
 }
 
-.contribution-grid {
-  display: grid;
-  grid-template-columns: repeat(52, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  gap: 2px;
-  max-width: 800px;
+.code-line {
+  min-height: 19.5px;
 }
 
-.grid-cell {
-  width: 11px;
-  height: 11px;
-  background-color: #161b22;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+.cursor {
+  color: #00D9FF;
+  font-weight: bold;
+  animation: blink 1s infinite;
 }
 
-/* Contribution levels */
-.grid-cell.level-1 { background-color: #0e4429; }
-.grid-cell.level-2 { background-color: #006d32; }
-.grid-cell.level-3 { background-color: #26a641; }
-.grid-cell.level-4 { background-color: #39d353; }
-
-/* Snake styling */
-.grid-cell.snake-body {
-  background-color: #00D9FF !important;
-  border-radius: 50%;
-  transform: scale(1.1);
-  box-shadow: 0 0 8px rgba(0, 217, 255, 0.6);
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-.grid-cell.snake-head {
-  background-color: #00ff00 !important;
-  border-radius: 50%;
-  transform: scale(1.2);
-  box-shadow: 0 0 12px rgba(0, 255, 0, 0.8);
-  position: relative;
+/* Syntax highlighting */
+.keyword { color: #ff7b72; }
+.string { color: #a5d6ff; }
+.comment { color: #7c3aed; font-style: italic; }
+.number { color: #79c0ff; }
+.boolean { color: #ffa657; }
+
+.status-bar {
+  background: #21262d;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #8b949e;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #30363d;
 }
 
-.grid-cell.snake-head::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 2px;
-  height: 2px;
-  background: #000;
-  border-radius: 50%;
+/* Scrollbar styling */
+.code-content::-webkit-scrollbar {
+  width: 8px;
 }
 
-.grid-cell.snake-head::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  width: 2px;
-  height: 2px;
-  background: #000;
-  border-radius: 50%;
+.code-content::-webkit-scrollbar-track {
+  background: #161b22;
+}
+
+.code-content::-webkit-scrollbar-thumb {
+  background: #656d76;
+  border-radius: 4px;
+}
+
+.code-content::-webkit-scrollbar-thumb:hover {
+  background: #768390;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .contribution-grid {
-    grid-template-columns: repeat(26, 1fr);
-    max-width: 400px;
+  .code-editor {
+    max-width: 100%;
+    margin: 0 10px;
   }
   
-  .grid-cell {
-    width: 8px;
-    height: 8px;
+  .code-lines, .line-numbers {
+    font-size: 12px;
+    padding: 12px;
+  }
+  
+  .status-bar {
+    flex-direction: column;
+    gap: 4px;
   }
 }
 </style>

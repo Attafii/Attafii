@@ -18,28 +18,42 @@
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Attafii/Attafii/output/github-contribution-grid-snake.svg">
 </picture>
 
-<!-- Real Playable Snake Game -->
-<div id="real-snake-game">
-  <h4>🎮 Real Snake Game - Use Arrow Keys!</h4>
-  <div id="game-controls">
-    <button id="start-btn">🚀 Start Game</button>
-    <button id="pause-btn">⏸️ Pause</button>
-    <button id="reset-btn">🔄 Reset</button>
+<!-- Interactive Code Terminal -->
+<div id="interactive-terminal">
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <div class="btn red"></div>
+      <div class="btn yellow"></div>
+      <div class="btn green"></div>
+    </div>
+    <span class="terminal-title">ahmed@dev:~$</span>
   </div>
-  <div id="game-info">
-    <span>Score: <strong id="real-score">0</strong></span>
-    <span>High Score: <strong id="high-score">0</strong></span>
-    <span>Speed: <strong id="speed-level">1</strong></span>
-  </div>
-  <canvas id="snake-canvas" width="400" height="400"></canvas>
-  <div id="game-instructions">
-    <p>🎯 Use Arrow Keys to control the snake</p>
-    <p>🍎 Eat the food to grow and increase score</p>
-    <p>⚠️ Don't hit the walls or yourself!</p>
-  </div>
-  <div id="victory-msg" style="display: none;">
-    <h3 id="win-text">🎉 Amazing! 🎉</h3>
-    <p id="win-message"></p>
+  <div class="terminal-body">
+    <div id="terminal-content">
+      <div class="terminal-line">
+        <span class="prompt">$</span>
+        <span class="command">whoami</span>
+      </div>
+      <div class="output">ahmed-attafi</div>
+      
+      <div class="terminal-line">
+        <span class="prompt">$</span>
+        <span class="command">cat passion.txt</span>
+      </div>
+      <div class="output">Building innovative solutions with code ✨</div>
+      
+      <div class="terminal-line">
+        <span class="prompt">$</span>
+        <span class="command">ls skills/</span>
+      </div>
+      <div class="output">javascript/ python/ iot/ cloud/ problem-solving/</div>
+      
+      <div class="terminal-line interactive-line">
+        <span class="prompt">$</span>
+        <input type="text" id="user-input" placeholder="try: help, about, skills, contact" autocomplete="off">
+        <span class="cursor">|</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -150,382 +164,235 @@ $ ./snake_game.exe
 </div>
 
 <script>
-class SnakeGame {
+// Interactive Terminal
+class InteractiveTerminal {
   constructor() {
-    this.canvas = document.getElementById('snake-canvas');
-    if (!this.canvas) return;
+    this.input = document.getElementById('user-input');
+    this.content = document.getElementById('terminal-content');
+    this.commands = {
+      help: 'Available commands: about, skills, contact, clear, joke, coffee',
+      about: 'Software Developer & IoT Specialist from Tunisia 🇹🇳\nPassionate about creating innovative solutions!',
+      skills: 'JavaScript ████████████ 95%\nPython      ██████████   85%\nIoT Systems ███████████  90%\nCloud Tech  ████████     80%',
+      contact: 'LinkedIn: /in/ahmed-attafi\nGitHub: @Attafii\nReady to collaborate! 🚀',
+      clear: 'CLEAR_TERMINAL',
+      joke: 'Why do programmers prefer dark mode?\nBecause light attracts bugs! 🐛💡',
+      coffee: 'Brewing coffee... ☕\n[████████████] 100%\nCoffee ready! Time to code! 💻'
+    };
     
-    this.ctx = this.canvas.getContext('2d');
-    this.gridSize = 20;
-    this.tileCount = this.canvas.width / this.gridSize;
-    
-    this.snake = [
-      {x: 10, y: 10}
-    ];
-    this.food = this.generateFood();
-    this.dx = 0;
-    this.dy = 0;
-    this.score = 0;
-    this.highScore = localStorage.getItem('snakeHighScore') || 0;
-    this.gameRunning = false;
-    this.speed = 150;
-    this.speedLevel = 1;
-    
-    this.winMessages = [
-      "🚀 Incredible! You're debugging life like a pro! 🐛➡️✨",
-      "💻 Epic! Your coding skills are as smooth as this snake! 🐍💫",
-      "🏆 Legendary! You turned bugs into features again! 🎯🌟",
-      "☕ Amazing! Time to celebrate with coffee! ☕🎊",
-      "🎮 Perfect! You're the Neo of snake games! 🕶️💻",
-      "🌟 Fantastic! Your problem-solving is next level! 🚀✨",
-      "🎉 Outstanding! Ready to tackle some real code? 💻🔥"
-    ];
-    
-    this.setupEventListeners();
-    this.updateHighScore();
-    this.draw();
+    if (this.input) {
+      this.setupEventListeners();
+      this.animateCursor();
+    }
   }
   
   setupEventListeners() {
-    const startBtn = document.getElementById('start-btn');
-    const pauseBtn = document.getElementById('pause-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    
-    if (startBtn) startBtn.addEventListener('click', () => this.startGame());
-    if (pauseBtn) pauseBtn.addEventListener('click', () => this.pauseGame());
-    if (resetBtn) resetBtn.addEventListener('click', () => this.resetGame());
-    
-    document.addEventListener('keydown', (e) => this.changeDirection(e));
-  }
-  
-  generateFood() {
-    return {
-      x: Math.floor(Math.random() * this.tileCount),
-      y: Math.floor(Math.random() * this.tileCount)
-    };
-  }
-  
-  startGame() {
-    if (!this.gameRunning) {
-      this.gameRunning = true;
-      this.gameLoop();
-    }
-  }
-  
-  pauseGame() {
-    this.gameRunning = false;
-  }
-  
-  resetGame() {
-    this.gameRunning = false;
-    this.snake = [{x: 10, y: 10}];
-    this.food = this.generateFood();
-    this.dx = 0;
-    this.dy = 0;
-    this.score = 0;
-    this.speed = 150;
-    this.speedLevel = 1;
-    this.updateScore();
-    this.updateSpeed();
-    this.hideVictoryMessage();
-    this.draw();
-  }
-  
-  changeDirection(e) {
-    if (!this.gameRunning) return;
-    
-    const LEFT_KEY = 37;
-    const RIGHT_KEY = 39;
-    const UP_KEY = 38;
-    const DOWN_KEY = 40;
-    
-    const keyPressed = e.keyCode;
-    const goingUp = this.dy === -1;
-    const goingDown = this.dy === 1;
-    const goingRight = this.dx === 1;
-    const goingLeft = this.dx === -1;
-    
-    if (keyPressed === LEFT_KEY && !goingRight) {
-      this.dx = -1;
-      this.dy = 0;
-    }
-    if (keyPressed === UP_KEY && !goingDown) {
-      this.dx = 0;
-      this.dy = -1;
-    }
-    if (keyPressed === RIGHT_KEY && !goingLeft) {
-      this.dx = 1;
-      this.dy = 0;
-    }
-    if (keyPressed === DOWN_KEY && !goingUp) {
-      this.dx = 0;
-      this.dy = 1;
-    }
-  }
-  
-  gameLoop() {
-    if (!this.gameRunning) return;
-    
-    setTimeout(() => {
-      this.clearCanvas();
-      this.moveSnake();
-      this.drawFood();
-      this.drawSnake();
-      
-      if (this.checkGameEnd()) {
-        this.gameRunning = false;
-        this.showGameOver();
-        return;
+    this.input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        this.executeCommand();
       }
-      
-      this.gameLoop();
-    }, this.speed);
-  }
-  
-  clearCanvas() {
-    this.ctx.fillStyle = '#0d1117';
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    });
     
-    // Draw grid
-    this.ctx.strokeStyle = '#1f2937';
-    this.ctx.lineWidth = 1;
-    for (let i = 0; i <= this.tileCount; i++) {
-      this.ctx.beginPath();
-      this.ctx.moveTo(i * this.gridSize, 0);
-      this.ctx.lineTo(i * this.gridSize, this.canvas.height);
-      this.ctx.stroke();
-      
-      this.ctx.beginPath();
-      this.ctx.moveTo(0, i * this.gridSize);
-      this.ctx.lineTo(this.canvas.width, i * this.gridSize);
-      this.ctx.stroke();
-    }
-  }
-  
-  moveSnake() {
-    const head = {x: this.snake[0].x + this.dx, y: this.snake[0].y + this.dy};
-    this.snake.unshift(head);
-    
-    if (head.x === this.food.x && head.y === this.food.y) {
-      this.score += 10;
-      this.updateScore();
-      this.food = this.generateFood();
-      this.increaseSpeed();
-      
-      // Check for victory messages
-      if (this.score > 0 && this.score % 100 === 0) {
-        this.showVictoryMessage();
-      }
-    } else {
-      this.snake.pop();
-    }
-  }
-  
-  drawSnake() {
-    this.snake.forEach((segment, index) => {
-      if (index === 0) {
-        // Head
-        this.ctx.fillStyle = '#00ff00';
-        this.ctx.fillRect(segment.x * this.gridSize + 2, segment.y * this.gridSize + 2, 
-                         this.gridSize - 4, this.gridSize - 4);
-        
-        // Eyes
-        this.ctx.fillStyle = '#000';
-        this.ctx.fillRect(segment.x * this.gridSize + 6, segment.y * this.gridSize + 6, 3, 3);
-        this.ctx.fillRect(segment.x * this.gridSize + 11, segment.y * this.gridSize + 6, 3, 3);
-      } else {
-        // Body
-        this.ctx.fillStyle = '#00D9FF';
-        this.ctx.fillRect(segment.x * this.gridSize + 1, segment.y * this.gridSize + 1, 
-                         this.gridSize - 2, this.gridSize - 2);
-      }
+    this.input.addEventListener('focus', () => {
+      this.input.style.outline = 'none';
     });
   }
   
-  drawFood() {
-    this.ctx.fillStyle = '#ff0000';
-    this.ctx.fillRect(this.food.x * this.gridSize + 3, this.food.y * this.gridSize + 3, 
-                     this.gridSize - 6, this.gridSize - 6);
+  executeCommand() {
+    const command = this.input.value.trim().toLowerCase();
     
-    // Apple stem
-    this.ctx.fillStyle = '#00ff00';
-    this.ctx.fillRect(this.food.x * this.gridSize + 9, this.food.y * this.gridSize + 1, 2, 4);
-  }
-  
-  checkGameEnd() {
-    const head = this.snake[0];
-    
-    // Wall collision
-    if (head.x < 0 || head.x >= this.tileCount || head.y < 0 || head.y >= this.tileCount) {
-      return true;
-    }
-    
-    // Self collision
-    for (let i = 1; i < this.snake.length; i++) {
-      if (head.x === this.snake[i].x && head.y === this.snake[i].y) {
-        return true;
+    if (command) {
+      // Add command to terminal
+      this.addLine(`$ ${command}`, 'command');
+      
+      // Execute command
+      if (this.commands[command]) {
+        if (command === 'clear') {
+          this.clearTerminal();
+        } else {
+          this.addLine(this.commands[command], 'output');
+        }
+      } else {
+        this.addLine(`Command not found: ${command}\nType 'help' for available commands`, 'output error');
       }
-    }
-    
-    return false;
-  }
-  
-  updateScore() {
-    const scoreElement = document.getElementById('real-score');
-    if (scoreElement) scoreElement.textContent = this.score;
-    
-    if (this.score > this.highScore) {
-      this.highScore = this.score;
-      localStorage.setItem('snakeHighScore', this.highScore);
-      this.updateHighScore();
+      
+      this.input.value = '';
+      this.scrollToBottom();
     }
   }
   
-  updateHighScore() {
-    const highScoreElement = document.getElementById('high-score');
-    if (highScoreElement) highScoreElement.textContent = this.highScore;
+  addLine(text, className = '') {
+    const lines = text.split('\n');
+    lines.forEach(line => {
+      const div = document.createElement('div');
+      div.className = `terminal-line ${className}`;
+      if (className === 'command') {
+        div.innerHTML = `<span class="prompt">$</span> <span class="command">${line.substring(2)}</span>`;
+      } else {
+        div.innerHTML = `<div class="output ${className}">${line}</div>`;
+      }
+      
+      // Insert before the interactive line
+      const interactiveLine = document.querySelector('.interactive-line');
+      this.content.insertBefore(div, interactiveLine);
+    });
   }
   
-  updateSpeed() {
-    const speedElement = document.getElementById('speed-level');
-    if (speedElement) speedElement.textContent = this.speedLevel;
+  clearTerminal() {
+    const lines = this.content.querySelectorAll('.terminal-line:not(.interactive-line)');
+    lines.forEach(line => line.remove());
   }
   
-  increaseSpeed() {
-    if (this.score % 50 === 0 && this.speed > 80) {
-      this.speed -= 10;
-      this.speedLevel++;
-      this.updateSpeed();
+  scrollToBottom() {
+    const terminal = document.getElementById('interactive-terminal');
+    if (terminal) {
+      terminal.scrollTop = terminal.scrollHeight;
     }
   }
   
-  showVictoryMessage() {
-    const randomMessage = this.winMessages[Math.floor(Math.random() * this.winMessages.length)];
-    const winMessageElement = document.getElementById('win-message');
-    const victoryMsgElement = document.getElementById('victory-msg');
-    
-    if (winMessageElement) winMessageElement.textContent = randomMessage;
-    if (victoryMsgElement) victoryMsgElement.style.display = 'block';
-    
-    setTimeout(() => {
-      this.hideVictoryMessage();
-    }, 3000);
-  }
-  
-  hideVictoryMessage() {
-    const victoryMsgElement = document.getElementById('victory-msg');
-    if (victoryMsgElement) victoryMsgElement.style.display = 'none';
-  }
-  
-  showGameOver() {
-    let message = "💥 Game Over! ";
-    if (this.score >= 200) {
-      message += "🏆 Legendary performance! You're a coding wizard! 🧙‍♂️✨";
-    } else if (this.score >= 100) {
-      message += "🎉 Excellent! Your debugging skills are showing! 🐛➡️🌟";
-    } else if (this.score >= 50) {
-      message += "👍 Good job! You're getting the hang of it! 💻🚀";
-    } else {
-      message += "🎯 Nice try! Every expert was once a beginner! 💪";
+  animateCursor() {
+    const cursor = document.querySelector('.cursor');
+    if (cursor) {
+      setInterval(() => {
+        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+      }, 500);
     }
-    
-    const winTextElement = document.getElementById('win-text');
-    const winMessageElement = document.getElementById('win-message');
-    const victoryMsgElement = document.getElementById('victory-msg');
-    
-    if (winTextElement) winTextElement.textContent = "🎮 Game Over!";
-    if (winMessageElement) winMessageElement.textContent = message;
-    if (victoryMsgElement) victoryMsgElement.style.display = 'block';
-  }
-  
-  draw() {
-    this.clearCanvas();
-    this.drawFood();
-    this.drawSnake();
   }
 }
 
-// Initialize the game when the page loads
-let snakeGame;
+// Initialize terminal when page loads
 document.addEventListener('DOMContentLoaded', () => {
-  snakeGame = new SnakeGame();
+  new InteractiveTerminal();
 });
 
-// Also try to initialize immediately in case DOMContentLoaded already fired
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    snakeGame = new SnakeGame();
-  });
-} else {
-  snakeGame = new SnakeGame();
+// Also initialize immediately if DOM is already loaded
+if (document.readyState !== 'loading') {
+  new InteractiveTerminal();
 }
 </script>
 
 <style>
-#real-snake-game {
-  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
-  border: 2px solid #00D9FF;
-  border-radius: 15px;
-  padding: 20px;
+#interactive-terminal {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
   margin: 20px auto;
-  max-width: 450px;
-  font-family: 'Courier New', monospace;
-  color: #00D9FF;
-  text-align: center;
+  max-width: 600px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
-#game-controls {
-  margin: 15px 0;
-}
-
-#game-controls button {
-  background: linear-gradient(45deg, #00D9FF, #0099cc);
-  color: #000;
-  border: none;
-  padding: 8px 15px;
-  margin: 0 5px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s;
-}
-
-#game-controls button:hover {
-  transform: scale(1.05);
-}
-
-#game-info {
+.terminal-header {
+  background: #21262d;
+  padding: 12px 16px;
   display: flex;
-  justify-content: space-around;
-  margin: 15px 0;
+  align-items: center;
+  border-bottom: 1px solid #30363d;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+  margin-right: 16px;
+}
+
+.btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.btn.red { background: #ff5f56; }
+.btn.yellow { background: #ffbd2e; }
+.btn.green { background: #27ca3f; }
+
+.terminal-title {
+  color: #f0f6fc;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.terminal-body {
+  padding: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.terminal-line {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.prompt {
+  color: #00D9FF;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.command {
+  color: #a5d6ff;
+}
+
+.output {
+  color: #f0f6fc;
+  margin-left: 24px;
+  white-space: pre-line;
   font-size: 14px;
 }
 
-#snake-canvas {
-  border: 2px solid #00D9FF;
-  border-radius: 10px;
-  background: #0d1117;
-  display: block;
-  margin: 15px auto;
+.output.error {
+  color: #ff7b72;
 }
 
-#game-instructions {
-  font-size: 12px;
-  margin-top: 10px;
-  color: #8b949e;
+.interactive-line {
+  margin-top: 8px;
 }
 
-#victory-msg {
-  background: linear-gradient(45deg, #00ff00, #00D9FF);
-  color: #000;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 15px;
-  animation: celebration 0.5s ease-in-out;
+#user-input {
+  background: transparent;
+  border: none;
+  color: #a5d6ff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  flex: 1;
+  margin-left: 8px;
 }
 
-@keyframes celebration {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+#user-input::placeholder {
+  color: #656d76;
+  font-style: italic;
+}
+
+.cursor {
+  color: #00D9FF;
+  font-weight: bold;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Scrollbar styling */
+.terminal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: #21262d;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #656d76;
+  border-radius: 3px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #768390;
 }
 </style>

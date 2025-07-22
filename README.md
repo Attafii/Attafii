@@ -12,11 +12,11 @@
 
 🧠 close your eyes , let's play a funny game
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Attafii/Attafii/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Attafii/Attafii/output/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Attafii/Attafii/output/github-contribution-grid-snake.svg">
-</picture>
+<div id="contribution-snake">
+  <div class="grid-container">
+    <div class="contribution-grid" id="snake-grid"></div>
+  </div>
+</div>
 
 ▶ now open 🧠
 
@@ -121,3 +121,222 @@ Missing: Just one more tutorial... 📚
 **Thanks for visiting! Let's build something amazing together! 🚀**
 
 </div>
+
+<script>
+// Contribution Snake Animation
+class ContributionSnake {
+  constructor() {
+    this.grid = document.getElementById('snake-grid');
+    this.width = 52; // weeks in a year
+    this.height = 7; // days in a week
+    this.snake = [];
+    this.direction = { x: 1, y: 0 };
+    this.speed = 150;
+    
+    this.createGrid();
+    this.initSnake();
+    this.animate();
+  }
+  
+  createGrid() {
+    if (!this.grid) return;
+    
+    this.grid.innerHTML = '';
+    for (let week = 0; week < this.width; week++) {
+      for (let day = 0; day < this.height; day++) {
+        const cell = document.createElement('div');
+        cell.className = 'grid-cell';
+        cell.dataset.week = week;
+        cell.dataset.day = day;
+        
+        // Add some random contributions
+        const intensity = Math.random();
+        if (intensity > 0.7) cell.classList.add('level-4');
+        else if (intensity > 0.5) cell.classList.add('level-3');
+        else if (intensity > 0.3) cell.classList.add('level-2');
+        else if (intensity > 0.1) cell.classList.add('level-1');
+        
+        this.grid.appendChild(cell);
+      }
+    }
+  }
+  
+  initSnake() {
+    // Start snake in the middle-left
+    this.snake = [
+      { x: 0, y: 3 },
+      { x: 1, y: 3 },
+      { x: 2, y: 3 },
+      { x: 3, y: 3 }
+    ];
+    this.updateSnakeDisplay();
+  }
+  
+  updateSnakeDisplay() {
+    // Clear previous snake
+    const cells = this.grid.querySelectorAll('.grid-cell');
+    cells.forEach(cell => {
+      cell.classList.remove('snake-head', 'snake-body');
+    });
+    
+    // Draw new snake
+    this.snake.forEach((segment, index) => {
+      const cell = this.grid.querySelector(`[data-week="${segment.x}"][data-day="${segment.y}"]`);
+      if (cell) {
+        if (index === this.snake.length - 1) {
+          cell.classList.add('snake-head');
+        } else {
+          cell.classList.add('snake-body');
+        }
+      }
+    });
+  }
+  
+  moveSnake() {
+    const head = this.snake[this.snake.length - 1];
+    const newHead = {
+      x: head.x + this.direction.x,
+      y: head.y + this.direction.y
+    };
+    
+    // Check boundaries and change direction
+    if (newHead.x >= this.width) {
+      // Hit right wall, go down
+      this.direction = { x: 0, y: 1 };
+      newHead.x = head.x;
+      newHead.y = head.y + 1;
+    } else if (newHead.y >= this.height) {
+      // Hit bottom wall, go left
+      this.direction = { x: -1, y: 0 };
+      newHead.y = head.y;
+      newHead.x = head.x - 1;
+    } else if (newHead.x < 0) {
+      // Hit left wall, go up
+      this.direction = { x: 0, y: -1 };
+      newHead.x = head.x;
+      newHead.y = head.y - 1;
+    } else if (newHead.y < 0) {
+      // Hit top wall, go right
+      this.direction = { x: 1, y: 0 };
+      newHead.y = head.y;
+      newHead.x = head.x + 1;
+    }
+    
+    // Add new head
+    this.snake.push(newHead);
+    
+    // Remove tail (keep snake length constant)
+    if (this.snake.length > 8) {
+      this.snake.shift();
+    }
+    
+    this.updateSnakeDisplay();
+  }
+  
+  animate() {
+    this.moveSnake();
+    setTimeout(() => this.animate(), this.speed);
+  }
+}
+
+// Initialize snake animation when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  new ContributionSnake();
+});
+
+// Also initialize immediately if DOM is already loaded
+if (document.readyState !== 'loading') {
+  new ContributionSnake();
+}
+</script>
+
+<style>
+#contribution-snake {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: #0d1117;
+  border-radius: 8px;
+  border: 1px solid #21262d;
+}
+
+.grid-container {
+  background: #0d1117;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 2px;
+  max-width: 800px;
+}
+
+.grid-cell {
+  width: 11px;
+  height: 11px;
+  background-color: #161b22;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Contribution levels */
+.grid-cell.level-1 { background-color: #0e4429; }
+.grid-cell.level-2 { background-color: #006d32; }
+.grid-cell.level-3 { background-color: #26a641; }
+.grid-cell.level-4 { background-color: #39d353; }
+
+/* Snake styling */
+.grid-cell.snake-body {
+  background-color: #00D9FF !important;
+  border-radius: 50%;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 217, 255, 0.6);
+}
+
+.grid-cell.snake-head {
+  background-color: #00ff00 !important;
+  border-radius: 50%;
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.8);
+  position: relative;
+}
+
+.grid-cell.snake-head::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 2px;
+  height: 2px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.grid-cell.snake-head::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 2px;
+  height: 2px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .contribution-grid {
+    grid-template-columns: repeat(26, 1fr);
+    max-width: 400px;
+  }
+  
+  .grid-cell {
+    width: 8px;
+    height: 8px;
+  }
+}
+</style>

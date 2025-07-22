@@ -1,96 +1,86 @@
-<!-- Ahmed Attafi | Creative Software Developer & IoT Specialist -->
+<!-- Ahmed Attafi | Software Developer & IoT Specialist -->
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=1769FF&center=true&vCenter=true&width=700&lines=Hi+there!+I'm+Ahmed+Attafi;Software+Developer+%7C+IoT+Specialist+%7C+Cloud+Enthusiast;Welcome+to+my+GitHub+profile!"/>
+<div align="center">
+
+# Hi, I'm Ahmed Attafi 👋
+
+<p>
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&pause=1000&color=00D9FF&center=true&vCenter=true&width=500&lines=Software+Developer;IoT+Specialist;Cloud+Enthusiast;Always+Learning"/>
 </p>
 
 ---
 
-## 🚀 About Me
-
-I'm Ahmed Attafi, a passionate Software Developer, IoT Specialist, and Cloud Enthusiast based in Tunis, Tunisia. My journey blends web development, IoT systems, and digital marketing, delivering versatile solutions and creative projects.
-
-- 🌐 **Web Design & Development:** HTML, CSS, JavaScript, React, Bootstrap, Chakra UI
-- 🔌 **IoT Systems:** Arduino, Raspberry Pi, Node-RED, sensors
-- 💻 **Programming:** C, C++, C#, Python, Kotlin, PHP, PowerShell
-- 🤖 **Automation & QA:** CANoe, JIRA, Python, Jenkins
-- 🏅 **Certifications:** C#, Azure AI, Project Management, Git/GitHub, IT Automation with Python
-- 🚗 **Current Role:** Automotive Software QA Engineer @ Capgemini Engineering
-- 🎨 **Freelance:** Web & UX/UI design projects with a focus on innovation and client satisfaction
+### 🐍 Watch the snake eat my contributions!
+![Snake animation](https://github.com/Attafii/Attafii/blob/output/github-contribution-grid-snake.svg)
 
 ---
 
-## 🌐 Connect with Me
+</div>
 
-<p align="center">
-  <a href="https://www.behance.net/ahmedattafi_"><img src="https://img.shields.io/badge/Behance-1769ff?logo=behance&logoColor=white"/></a>
-  <a href="https://discord.com/invite/Attafi#1497"><img src="https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white"/></a>
-  <a href="https://www.instagram.com/ahmed.attafii/"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white"/></a>
-  <a href="https://www.linkedin.com/in/ahmed-attafi/"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white"/></a>
-  <a href="https://medium.com/@attafii"><img src="https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white"/></a>
-  <a href="https://www.pinterest.com/attafii_/" ><img src="https://img.shields.io/badge/Pinterest-%23E60023.svg?logo=Pinterest&logoColor=white"/></a>
-  <a href="https://www.reddit.com/user/Apprehensive-Put7037/"><img src="https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white"/></a>
-  <a href="https://x.com/ahmedattafi_"><img src="https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white"/></a>
-</p>
+## About Me
 
----
+I'm a Software Developer and IoT Specialist based in Tunisia 🇹🇳, passionate about creating innovative solutions.
 
-## 🛠️ Tech Stack
+**Currently:** Automotive Software QA Engineer @ Capgemini Engineering  
+**Focus:** Web Development, IoT Systems, Cloud Technologies  
+**Motto:** Turning ideas into code, one commit at a time ☕
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=css,html,js,react,bootstrap,chakraui,php,python,c,csharp,cpp,kotlin,powershell,latex,shell,azure,githubpages,firebase,netlify,dotnet,anaconda,flutter,express,fastapi,node-red,nodejs,npm,rabbitmq,sass,wordpress,jenkins,postgres,mysql,adobelightroom,adobephotoshop,adobexd,figma,canva,pandas,numpy,tensorflow,scikit-learn,pytorch,matplotlib,git,github,arduino,notion,docker,kubernetes,raspberrypi,mosquitto,jira,flask" />
-</p>
+### What I Work With
 
----
+```
+Frontend    │ HTML • CSS • JavaScript • React
+Backend     │ Python • C# • C++ • Node.js
+IoT         │ Arduino • Raspberry Pi • Sensors
+Cloud       │ Azure • Firebase
+Tools       │ Git • Docker • Jenkins
+```
 
-## 📈 GitHub Stats
+### Connect
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Attafii&theme=transparent&hide_border=false&include_all_commits=true&count_private=true"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Attafii&theme=transparent&hide_border=false"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Attafii&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact"/>
-</p>
+<div align="center">
 
----
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ahmed-attafi/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Attafii)
+[![Medium](https://img.shields.io/badge/Medium-12100E?style=flat&logo=medium&logoColor=white)](https://medium.com/@attafii)
+[![Behance](https://img.shields.io/badge/Behance-1769FF?style=flat&logo=behance&logoColor=white)](https://www.behance.net/ahmedattafi_)
 
-## 🏆 GitHub Trophies
+![Profile Views](https://komarev.com/ghpvc/?username=Attafii&color=00D9FF&style=flat)
 
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Attafii&theme=radical&no-frame=false&no-bg=false&margin-w=4"/>
-</p>
+</div>
 
----
+### Stats
 
-## ✍️ Dev Quote
+<div align="center">
 
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical"/>
-</p>
+<img height="160" src="https://github-readme-stats.vercel.app/api?username=Attafii&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF"/>
+<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Attafii&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF"/>
 
----
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Attafii&theme=dark&hide_border=true&background=0d1117&stroke=00D9FF&ring=00D9FF&fire=00D9FF&currStreakLabel=00D9FF"/>
 
-## 🔝 Top Contributed Repo
+</div>
 
-<p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=Attafii&limit=5&theme=radical&combine_all_yearly_contributions=true"/>
-</p>
-
----
-
-<p align="center">
-  <a href="https://visitcount.itsvg.in/api?id=Attafii&icon=0&color=8"><img src="https://visitcount.itsvg.in/api?id=Attafii&icon=0&color=8"/></a>
-</p>
-
----
+### Interactive Fun Zone 🎮
 
 <details>
-  <summary>✨ More About Me</summary>
-  <ul>
-    <li>🎓 Lifelong learner, always exploring new tech and ideas</li>
-    <li>🌍 Open to collaborations and innovative projects</li>
-    <li>🎯 Driven by creativity, quality, and client satisfaction</li>
-    <li>📬 DM me for freelance opportunities or tech talks!</li>
-  </ul>
+<summary>🎯 Click here for some fun!</summary>
+
+**Random Dev Quote:**
+> "Code is like humor. When you have to explain it, it's bad." – Cory House
+
+**Fun Facts:**
+- ☕ I debug better with coffee
+- 🌙 Night owl programmer
+- 🐛 I call bugs "features in development"
+- � Life is just a complex algorithm
+
+**Want to collaborate?** Feel free to reach out!
+
 </details>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+---
+
+<div align="center">
+
+**Thanks for visiting! Let's build something amazing together! 🚀**
+
+</div>

@@ -2,7 +2,51 @@
 
 <div align="center">
 
-# Hi, I'm Ahmed Attafi 👋
+# Hi### Interactive Fun Zone 🎮
+
+<details>
+<summary>🎯 Click here for some fun!</summary>
+
+**🐍 ASCII Snake Game:**
+```
+┌─────────────────────────────────────┐
+│  🍎     ░░░    ░░░░░     🍎        │
+│         ░░░    ░░░░░              │
+│  🍎     ░░░    ░░░░░     🍎        │
+│         ░░█████████░              │
+│         ░██SNAKE██░               │
+│  🍎     ░█████████░      🍎        │
+│              ░░░                  │
+│  🍎          ░░░         🍎        │
+└─────────────────────────────────────┘
+Score: ∞ (Because I code all day!)
+```
+
+**Random Dev Quote:**
+> "Code is like humor. When you have to explain it, it's bad." – Cory House
+
+**Fun Facts:**
+- ☕ I debug better with coffee
+- 🌙 Night owl programmer
+- 🐛 I call bugs "features in development"
+- 🎮 Life is just a complex algorithm
+
+**Interactive Command Line:**
+```bash
+$ whoami
+ahmed-attafi
+
+$ cat skills.txt
+Web Development ████████████ 95%
+IoT Systems     ██████████   85%
+Cloud Tech      ████████     80%
+Problem Solving ████████████ 99%
+
+$ echo "Want to collaborate?"
+Yes! Feel free to reach out! 🚀
+```
+
+</details>i 👋
 
 <p>
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&pause=1000&color=00D9FF&center=true&vCenter=true&width=500&lines=Software+Developer;IoT+Specialist;Cloud+Enthusiast;Always+Learning"/>
@@ -11,7 +55,37 @@
 ---
 
 ### 🐍 Watch the snake eat my contributions!
-![Snake animation](https://github.com/Attafii/Attafii/blob/output/github-contribution-grid-snake.svg)
+
+<div align="center">
+
+<!-- Snake Game Animation -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Attafii/Attafii/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Attafii/Attafii/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Attafii/Attafii/output/github-contribution-grid-snake.svg">
+</picture>
+
+<!-- Fallback Snake Game (Pure CSS) -->
+<div class="snake-game">
+  <div class="snake-container">
+    🐍💻🐍💻🐍💻🐍💻🐍💻🐍💻🐍💻🐍
+  </div>
+</div>
+
+<style>
+.snake-container {
+  animation: snake-move 4s linear infinite;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+@keyframes snake-move {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+</style>
+
+</div>
 
 ---
 

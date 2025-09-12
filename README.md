@@ -62,7 +62,7 @@ console.log(ahmed.collaborate());
 
 <div align="center">
 
-[![IoT Smart Home](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/iot-smart-home)
+[![IoT Smart Home]](https://github.com/Attafii/iot-smart-home)
 [![AI & LLM Prompt Assistant](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/ClarityAI-Extension)
 [![Modern project management dashboard](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/IntelliConnect)
 [![Architecture Office Management System](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/Archiflow)

@@ -166,8 +166,6 @@ Tools       │ Git • Docker • Jenkins
 
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=Attafii&theme=dark&hide_border=true&background=0d1117&stroke=00D9FF&ring=00D9FF&fire=00D9FF&currStreakLabel=00D9FF"/>
 
-![Snake animation](https://github.com/Attafii/Attafii/blob/output/github-contribution-grid-snake.svg)
-
 </div>
 
 ---

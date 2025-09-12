@@ -63,24 +63,27 @@ console.log(ahmed.collaborate());
 <div align="center">
 
 [![IoT Smart Home](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/iot-smart-home)
-[![Automotive Testing Suite](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=automotive-testing-suite&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/automotive-testing-suite)
+[![AI & LLM Prompt Assistant](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/ClarityAI-Extension)
+[![Modern project management dashboard](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/IntelliConnect)
+[![Architecture Office Management System](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/Archiflow)
 
 </div>
 
 **🏆 Highlighted Work:**
-- **🏠 IoT Smart Home System** - Arduino + Firebase + React dashboard for home automation
+- **🏠 IoT Smart Home System** - Arduino + Firebase + Nextjs dashboard for home automation
 - **🚗 Automotive Testing Framework** - C# testing suite for automotive software validation
 - **⚡ Real-time Sensor Monitor** - Python + IoT dashboard for industrial sensor networks
+- **💬 Intelligent Prompt Enhancement** - advanced AI technology to enhance your prompts
 
 ---
 
 ### 🎯 Currently Working On
 
 ```
-🔭 Current Project: Advanced IoT Security Framework
-🌱 Learning: Kubernetes & DevOps automation
-💬 Ask me about: IoT Architecture, QA Automation, Automotive Software
-🤝 Looking to collaborate on: Open-source IoT projects
+🔭 Current Project: ClarityAI - Intelligent Prompt Enhancement
+🌱 Learning: Kubernetes & DevOps automation & AI
+💬 Ask me about: IoT Architecture, QA Automation, Automotive Software, AI, LLM
+🤝 Looking to collaborate on: Open-source projects
 ⚡ Fun fact: I can debug hardware and software simultaneously!
 ```
 
@@ -96,23 +99,13 @@ console.log(ahmed.collaborate());
 
 ---
 
-### 📝 Latest Articles
-
-<!-- BLOG-POST-LIST:START -->
-- 🔗 [Building Scalable IoT Systems with Arduino and Cloud](https://medium.com/@attafii/building-scalable-iot-systems)
-- 🔗 [QA Best Practices in Automotive Software Development](https://medium.com/@attafii/qa-automotive-software)
-- 🔗 [From Tunisia to Tech: My Journey as a Software Engineer](https://medium.com/@attafii/tunisia-tech-journey)
-<!-- BLOG-POST-LIST:END -->
-
----
-
 ### �📊 Quick Stats
 
 ```
-🔥 Commits This Year: 420+
-⭐ Stars Earned: 89
+🔥 Commits This Year: 50+
+⭐ Stars Earned: 15
 🔀 Pull Requests: 156
-🐛 Issues Closed: 73
+🐛 Issues Closed: 10
 ☕ Coffee Consumed: ∞
 ```
 
@@ -130,13 +123,13 @@ console.log(ahmed.collaborate());
 I'm a Software Developer and IoT Specialist based in Tunisia 🇹🇳, passionate about creating innovative solutions.
 
 **Currently:** Automotive Software QA Engineer @ Capgemini Engineering  
-**Focus:** Web Development, IoT Systems, Cloud Technologies  
+**Focus:** Web Development, IoT Systems, Cloud Technologies, AI LLM
 **Motto:** Turning ideas into code, one commit at a time ☕
 
 ### What I Work With
 
 ```
-Frontend    │ HTML • CSS • JavaScript • React
+Frontend    │ Nextjs • JavaScript • React
 Backend     │ Python • C# • C++ • Node.js
 IoT         │ Arduino • Raspberry Pi • Sensors
 Cloud       │ Azure • Firebase

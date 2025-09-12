@@ -62,12 +62,13 @@ console.log(ahmed.collaborate());
 
 <div align="center">
 
-[![IoT Smart Home](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/iot-smart-home)
-[![AI & LLM Prompt Assistant](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/ClarityAI-Extension)
-[![Modern project management dashboard](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/IntelliConnect)
-[![Architecture Office Management System](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=iot-smart-home&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/Archiflow)
+[![IoT Smart Home](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=SmartHome-Security&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/SmartHome-Security)
+[![AI & LLM Prompt Assistant](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=ClarityAI-Extension&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/ClarityAI-Extension)
+[![Modern Project Management Dashboard](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=IntelliConnect&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/IntelliConnect)
+[![Architecture Office Management System](https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=Archiflow&theme=dark&hide_border=true&bg_color=0d1117&title_color=00D9FF&icon_color=00D9FF)](https://github.com/Attafii/Archiflow)
 
 </div>
+
 
 **🏆 Highlighted Work:**
 - **🏠 IoT Smart Home System** - Arduino + Firebase + Nextjs dashboard for home automation

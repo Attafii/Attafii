@@ -1,3 +1,5 @@
+![OpBento](https://firebasestorage.googleapis.com/v0/b/smartkaksha-fe32c.appspot.com/o/opbento%2FAttafiicdfaf.png?alt=media)
+
 <div align="center">
   <!-- Animated Header Banner -->
   <img src="https://capsule-render.vercel.app/api?type=waving&color=00D9FF&height=200&section=header&text=Ahmed%20Attafi&fontSize=70&animation=fadeIn&fontAlignY=35" width="100%" />
@@ -77,23 +79,4 @@ I'm a **Software Quality Assurance Engineer** specializing in **Automotive Syste
       </td>
     </tr>
   </table>
-</div>
-
----
-
-### 📈 GitHub Activity
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Attafii&theme=github-compact&bg_color=0d1117&color=00D9FF&line=00D9FF&point=FFFFFF&hide_border=true" width="100%" />
-</p>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Attafii&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00D9FF" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Attafii&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00D9FF" width="48%" />
-</div>
-
----
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Attafii/Attafii/main/snake.svg" alt="Snake Animation" />
-  <p><i>Building the future, one commit at a time.</i></p>
 </div>

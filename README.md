@@ -6,12 +6,6 @@
 
   <!-- Typing Animation -->
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&pause=1000&color=00D9FF&center=true&vCenter=true&width=500&lines=QA+Engineer+%40+Capgemini+Engineering;IoT+%26+Embedded+Systems+Specialist;AI+%26+LLM+Solutions+Architect" alt="Typing SVG" />
-
-  <p align="center">
-    <img src="https://img.shields.io/github/followers/Attafii?label=Followers&style=for-the-badge&color=00D9FF&logo=github" />
-    <img src="https://img.shields.io/github/stars/Attafii?label=Total%20Stars&style=for-the-badge&color=00D9FF&logo=github" />
-    <img src="https://komarev.com/ghpvc/?username=Attafii&color=00D9FF&style=for-the-badge&label=Profile+Views" />
-  </p>
 </div>
 
 ---
@@ -73,8 +67,8 @@ I'm a **Software Quality Assurance Engineer** specializing in **Automotive Syste
         </a>
       </td>
       <td>
-        <a href="https://github.com/Attafii/SmartHome-Security">
-          <img src="https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=SmartHome-Security&theme=tokyonight&border_radius=10&title_color=00D9FF" />
+        <a href="https://github.com/Attafii/clarity-ai-landing">
+          <img src="https://github-readme-stats.vercel.app/api/pin/?username=Attafii&repo=clarity-ai-landing&theme=tokyonight&border_radius=10&title_color=00D9FF" />
         </a>
       </td>
     </tr>

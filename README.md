@@ -1,4 +1,4 @@
-![OpBento](https://opbento.vercel.app/api/bento/image?g=Attafii&z=25091)
+![OpBento](https://opbento.vercel.app/api/bento/image?g=Attafii&z=5c5e8)
 
 <div align="center">
   <!-- Animated Header Banner -->
